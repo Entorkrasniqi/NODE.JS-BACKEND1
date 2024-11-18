@@ -11,7 +11,10 @@ This project is a basic setup for a Node.js application, including development t
 ## Project Structure
 - **index.js**: Entry point for the Node.js application.
 - **server.js**: Contains the REST API implementation.
+- **views/**: Directory containing Pug templates for rendering HTML.
+  - **index.pug**: The main landing page template.
 - **package.json**: Contains dependencies, scripts, and project metadata.
+- **package-lock.json**: Automatically generated file that locks the versions of dependencies.
 - **.eslintrc.json**: Configuration for ESLint to enforce code quality.
 - **.gitignore**: Specifies files and folders to be ignored by Git.
 - **README.md**: Project documentation.
@@ -20,8 +23,8 @@ This project is a basic setup for a Node.js application, including development t
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/node-project.git
-   cd node-project
+   git clone https://github.com/YOUR_USERNAME/node.js-backend1.git
+   cd node.js-backend1
    ```
 
 2. **Install Dependencies**:
@@ -33,6 +36,8 @@ This project is a basic setup for a Node.js application, including development t
    ```bash
    node server.js
    ```
+
+4. **Access the Application**: Open your web browser and navigate to `http://localhost:6000` to view the application.
 
 ## API Endpoints
 
@@ -79,17 +84,17 @@ This project is a basic setup for a Node.js application, including development t
 
 1. **Get All Items**:
    ```bash
-   curl http://localhost:3000/api/data
+   curl http://localhost:6000/api/data
    ```
 
 2. **Add a New Item**:
    ```bash
-   curl -X POST http://localhost:3000/api/data -H "Content-Type: application/json" -d '{"name": "New Item"}'
+   curl -X POST http://localhost:6000/api/data -H "Content-Type: application/json" -d '{"name": "New Item"}'
    ```
 
 3. **Search for Items**:
    ```bash
-   curl http://localhost:3000/api/data/search?name=Item
+   curl http://localhost:6000/api/data/search?name=Item
    ```
 
 ## License
