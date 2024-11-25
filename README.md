@@ -1,101 +1,63 @@
-# Node.js Project
+# Node.js Media Sharing App
 
 ## Project Overview
-This project is a basic setup for a Node.js application, including development tools like ESLint for code quality and Nodemon for automatic restarts in the development environment. This setup is ideal for building Node.js applications with a focus on maintaining clean code and an efficient workflow.
+This project is a media sharing application built with Node.js and Express. It implements user authentication and authorization, allowing users to manage their media items securely. The application follows the MVC (Model-View-Controller) pattern and uses JWT (JSON Web Tokens) for authentication.
 
-## Requirements
-- Node.js
-- npm (Node Package Manager)
-- Git
+## Features Implemented
 
-## Project Structure
-- **index.js**: Entry point for the Node.js application.
-- **server.js**: Contains the REST API implementation.
-- **views/**: Directory containing Pug templates for rendering HTML.
-  - **index.pug**: The main landing page template.
-- **package.json**: Contains dependencies, scripts, and project metadata.
-- **package-lock.json**: Automatically generated file that locks the versions of dependencies.
-- **.eslintrc.json**: Configuration for ESLint to enforce code quality.
-- **.gitignore**: Specifies files and folders to be ignored by Git.
-- **README.md**: Project documentation.
+### 1. User Authentication
+- **Login Endpoint**: Implemented a `POST /api/auth/login` endpoint that allows users to log in using their email and password.
+- **JWT Authentication**: Utilized JSON Web Tokens to authenticate users. Upon successful login, a token is generated and returned to the user.
 
-## Setup Instructions
+### 2. User Authorization
+- **Protected Routes**: Implemented authorization for specific routes to ensure that only authorized users can perform certain actions:
+  - **PUT /api/media/:id**: Only the owner of the media item can update it.
+  - **DELETE /api/media/:id**: Only the owner of the media item can delete it.
+  - **PUT /api/users/**: Users can only update their own user information.
 
-1. **Clone the Repository**:
+### 3. Middleware Implementation
+- **Authentication Middleware**: Created middleware to verify JWT tokens and authenticate users.
+- **Authorization Middleware**: Developed middleware to check if users are authorized to access or modify specific resources (media items and user information).
+
+### 4. Project Structure
+- **Routes**: Organized routes into separate files for authentication, media, and user management.
+- **Middleware**: Created a dedicated directory for middleware functions to handle authentication and authorization logic.
+- **Models**: Used models to interact with the database for user and media data.
+
+## Technologies Used
+- **Node.js**: JavaScript runtime for building the server.
+- **Express**: Web framework for building the RESTful API.
+- **MongoDB**: NoSQL database for storing user and media data (assumed based on context).
+- **JWT**: For secure user authentication.
+- **Bcrypt.js**: For hashing passwords.
+
+## Installation
+1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/node.js-backend1.git
+   git clone https://github.com/yourusername/node.js-backend1.git
    cd node.js-backend1
    ```
 
-2. **Install Dependencies**:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. **Start the Server**:
+3. Start the server:
    ```bash
-   node server.js
+   npm start
    ```
 
-4. **Access the Application**: Open your web browser and navigate to `http://localhost:6000` to view the application.
+4. Access the application at `http://localhost:6000`.
 
-## API Endpoints
+## Usage
+- **Register a User**: Use the `POST /api/auth/register` endpoint to create a new user.
+- **Login**: Use the `POST /api/auth/login` endpoint to log in and receive a JWT token.
+- **Manage Media**: Use the media endpoints to create, update, delete, and retrieve media items, ensuring you include the JWT token in the `Authorization` header for protected routes.
 
-### 1. Get All Items
-- **Endpoint**: `GET /api/data`
-- **Description**: Retrieves all items.
-- **Response**: Returns an array of items.
+## Conclusion
+This project demonstrates the implementation of user authentication and authorization in a Node.js application, following best practices for security and code organization. The modular structure allows for easy maintenance and scalability.
 
-### 2. Add a New Item
-- **Endpoint**: `POST /api/data`
-- **Description**: Adds a new item.
-- **Request Body**:
-  ```json
-  {
-      "name": "New Item"
-  }
-  ```
-- **Response**: Returns the created item with a unique ID.
+---
 
-### 3. Delete an Item
-- **Endpoint**: `DELETE /api/data/:id`
-- **Description**: Deletes an item by ID.
-- **Response**: Returns a 204 status code on success.
-
-### 4. Update an Item
-- **Endpoint**: `PUT /api/data/:id`
-- **Description**: Updates an existing item by ID.
-- **Request Body**:
-  ```json
-  {
-      "name": "Updated Item"
-  }
-  ```
-- **Response**: Returns the updated item.
-
-### 5. Search for Items
-- **Endpoint**: `GET /api/data/search`
-- **Description**: Searches for items by name.
-- **Query Parameters**: 
-  - `name`: The name to search for.
-- **Response**: Returns an array of matching items.
-
-## Example Usage
-
-1. **Get All Items**:
-   ```bash
-   curl http://localhost:6000/api/data
-   ```
-
-2. **Add a New Item**:
-   ```bash
-   curl -X POST http://localhost:6000/api/data -H "Content-Type: application/json" -d '{"name": "New Item"}'
-   ```
-
-3. **Search for Items**:
-   ```bash
-   curl http://localhost:6000/api/data/search?name=Item
-   ```
-
-## License
-This project is licensed under the ISC License.
+Feel free to modify any sections to better reflect your specific implementation details or any additional features you may have added. If you have any further questions or need additional assistance, let me know!
