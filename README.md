@@ -1,4 +1,34 @@
-# Node.js Media Sharing App
+# My Express App
+
+This is an Express.js application with enhanced security features and API documentation.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Running the Server](#running-the-server)
+- [API Documentation](#api-documentation)
+- [Security Features](#security-features)
+- [Forgotten Password Reset](#forgotten-password-reset)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo-link.git
+   cd your-repo-link
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the server:
+   ```bash
+   npm start
+   ```
+
+4. Access the application at `http://localhost:6000`.
 
 ## Project Overview
 This project is a media sharing application built with Node.js and Express. It implements user authentication and authorization, allowing users to manage their media items securely. The application follows the MVC (Model-View-Controller) pattern and uses JWT (JSON Web Tokens) for authentication.
@@ -30,25 +60,6 @@ This project is a media sharing application built with Node.js and Express. It i
 - **MongoDB**: NoSQL database for storing user and media data (assumed based on context).
 - **JWT**: For secure user authentication.
 - **Bcrypt.js**: For hashing passwords.
-
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/node.js-backend1.git
-   cd node.js-backend1
-   ```
-
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Start the server:
-   ```bash
-   npm start
-   ```
-
-4. Access the application at `http://localhost:6000`.
 
 ## Usage
 - **Register a User**: Use the `POST /api/auth/register` endpoint to create a new user.
